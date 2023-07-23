@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body class="p-4 bg-dark text-black">
+<div class="container mx-auto">
+    <div class="col-6 mx-auto">
+        <div class="jumbotron" style="background-color: darkturquoise" >
+<form th:action="@{/check}" th:object="${new_User_user1}" method="post">
+    Enter E-mail:
+    <div class="px-1"></div>
+    <input  type="email" name="email" id="email"><br>
+    Enter password:
+    <div class="px-1"></div>
+    <input  type="password" name="password" id="password"><br>
+    <input class="m-2" type="submit" value="login"><br>
+
+    New in? Please, <a href="register.html">register!</a>
+
+</form>
+        </div>
+        </div>
+        </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body class="p-4 bg-dark text-black">
+<div class="container h-100">
+    <div class="col-6 mx-auto">
+        <div class="jumbotron" style="background-color: darkturquoise">
+<form th:action="@{/add}"  method="post">
+    Enter name: <input style="margin-bottom: 10px" type="text" th:object="${new_User_user1}" name="name" id="name" required><br>
+    Enter surname: <input style="margin-bottom: 10px" type="text" th:object="${new_User_user1}" name="surname" id="surname" required><br>
+    Enter patronymic: <input style="margin-bottom: 10px" type="text" th:object="${new_User_user1}" name="patronymic" id="patronymic" ><br>
+    Enter email: <input style="margin-bottom: 10px" type="email" th:object="${new_User_user1}" name="email" id="email" required><br>
+    Enter password: <input style="margin-bottom: 10px" type="password" th:object="${new_User_user1}" name="password" id="password" required><br>
+    Enter contact number: <input style="margin-bottom: 10px" type="text" th:object="${new_User_user1}" name="contactNumber" id="contactNumber" required><br>
+    Enter car color: <input style="margin-bottom: 10px" type="text" th:object="${new_CarTable1}" name="carColor" id="carColor" required><br>
+    Enter car model: <input style="margin-bottom: 10px" type="text" th:object="${new_CarTable1}" name="carModel" id="carModel" required><br>
+    Enter car plate: <input style="margin-bottom: 10px" type="text" th:object="${new_CarTable1}" name="plateref" id="plateref" required><br>
+    <input type="hidden" th:object="${new_User_user1}" th:field="*{role}" value="user">
+    <input class="m-2" type="submit" value="register">
+</form>
+</div>
+</div>
+</div>
+</body>
+<footer>
+    <div class="container-fluid text-center" >
+        <a class="h3" th:href="@{/index.html}">Go back</a>
+    </div>
+</footer>
+</html>

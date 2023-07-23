@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage users</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+
+</head>
+<body class="p-4 bg-dark text-white">
+<div class="container-fluid text-center">
+<div><h1> Manage the barrier </h1></div>
+</div>
+<div class="d-flex flex-row justify-content-center mb-2" id="">
+    <button class="btn btn-primary btn-lg" id="lockButt" onclick="lockButt()">Lock the gate</button>
+    <button class="btn btn-primary btn-lg" id="unlockButt" onclick="unlockButt()" style="display: none">Unlock the gate</button>
+</div>
+<div class="d-flex flex-row justify-content-center mb-2" id="">
+    <button class="btn btn-primary btn-lg" id="openButt" onclick="openButt()">Open the gate</button>
+    <button class="btn btn-primary btn-lg" id="closeButt" onclick="closeButt()" style="display: none" >Close the gate</button>
+</div>
+<div class="container-fluid text-center">
+    <div><h1>Manage users</h1></div>
+    <!--<div class="m-2"><a class="h3"  th:href="@{/users/new}">Add new user</a></div> -->
+
+    <div>
+        <table class="table table-bordered " style="background-color: darkturquoise">
+            <thead  style="background-color: darkturquoise">
+            <tr>
+                <th>ID</th>
+                <th>Login</th>
+                <th>Password</th>
+                <th>Email</th>
+                <th>Options</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="user : ${listUsers}">
+                <tr>
+                    <td>[[${user.getIdUser}]]</td>
+                    <td>[[${user.getName}]]</td>
+                    <td>[[${user.getPassword}]]</td>
+                    <td>[[${user.getEmail}]]</td>
+                    <td>
+                        <a class="h4 mr-3" th:href="@{'/users/edit/' + ${user.getIdUser}}">Edit</a>
+                        <a class="h4" th:href="@{'/users/delete/' + ${user.getIdUser}}">Delete</a>
+                    </td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+</div>
+<footer>
+    <div class="container-fluid text-center" >
+        <a class="h3" th:href="@{/index.html}">Log Out</a>
+    </div>
+</footer>
+<script type="text/javascript" th:src="@{/js/block.js}"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title style="text-align: center">Welcome</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+
+</head>
+<body class="p-4 bg-dark text-black">
+<h1 class="text-white" style="text-align: center ">Parking layout:</h1>
+<div>
+    <img src="https://sun9-50.userapi.com/impg/UCjrgZW1DyHoMNWucPaikD_Nf8OVfxgVPd7Ehw/noJuKISLNA8.jpg?size=525x938&quality=96&sign=f72d42baf7b3aaecab763a812db43732&type=album">
+<table class="table table-bordered">
+    <tbody>
+    <ul class="list-group">
+        <li> <h1 class="text-white">Free spaces: [[${listEmptyPlaces.getPlaces}]]</h1></li>
+        <li> <h1 class="text-white">Taken spaces: [[${listEmptyPlaces2.getPlaces}]]</h1></li>
+    </ul>
+    </tbody>
+</table>
+</div>
+<h1 class="text-white" style="text-align: center">Your own data:</h1>
+<div>
+
+<table class="table table-bordered">
+    <tbody>
+        <ul class="list-group">
+            <li class="list-group-item text-black" style="background-color: darkturquoise">ID: [[${listUsers.getIdUser}]]</li>
+            <li class="list-group-item text-black" style="background-color: darkturquoise">Your name: [[${listUsers.getName}]]</li>
+            <li class="list-group-item text-black" style="background-color: darkturquoise">Your surname: [[${listUsers.getSurname}]]</li>
+            <li class="list-group-item text-black" style="background-color: darkturquoise">Your patronymic: [[${listUsers.getPatronymic}]]</li>
+            <li class="list-group-item text-black" style="background-color: darkturquoise">Your plate: [[${listCarTables.getPlateref}]]</li>
+            <li class="list-group-item text-black" style="background-color: darkturquoise">Your password: [[${listUsers.getPassword}]]</li>
+            <li class="list-group-item text-black" style="background-color: darkturquoise">Your Email: [[${listUsers.getEmail}]]</li>
+            <li class="list-group-item text-black" style="background-color: darkturquoise">Your Car Color: [[${listCarTables.getCarColor}]]</li>
+            <li class="list-group-item text-black" style="background-color: darkturquoise">Your Car Model: [[${listCarTables.getCarModel}]]</li>
+        </ul>
+    </th:block>
+    </tbody>
+</table>
+</div>
+</body>
+<footer>
+    <div class="container-fluid text-center" >
+        <th:block th:each="user : ${listUsers}">
+        <a class="h3" th:href="@{'/users/edit2/' + ${user.getIdUser}}">Edit Info</a>
+            </th:block>
+    </div>
+    <div class="container-fluid text-center" >
+        <a class="h3" th:href="@{/index.html}">Log Out</a>
+    </div>
+
+</footer>
+</html>
